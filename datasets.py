@@ -14,7 +14,7 @@ from torchvision.datasets.utils import download_url, check_integrity
 import torch.utils.data as data
 from torch.utils.data import DataLoader
          
-IMG_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm']
+IMG_EXTENSIONS = ['.jpg', '.jpeg', '.JPEG', '.png', '.ppm', '.bmp', '.pgm']
 
 
 def is_image_file(filename):
