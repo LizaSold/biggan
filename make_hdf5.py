@@ -25,7 +25,7 @@ def prepare_parser():
     help='Which Dataset to train on, out of I128, I256, C10, C100;'
          'Append "_hdf5" to use the hdf5 version for ISLVRC (default: %(default)s)')
   parser.add_argument(
-    '--data_root', type=str, default='data',
+    '--data_root', type=str, default='/u/eliz/Researchl1/biggan/data',
     help='Default location where data is stored (default: %(default)s)')
   parser.add_argument(
     '--batch_size', type=int, default=256,
