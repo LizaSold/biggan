@@ -33,8 +33,8 @@ def prepare_parser():
   
   ### Dataset/Dataloader stuff ###
   parser.add_argument(
-    '--dataset', type=str, default='I128_hdf5',
-    help='Which Dataset to train on, out of I128, I256, C10, C100;'
+    '--dataset', type=str, default='ecoset_hdf5',
+    help='Which Dataset to train on, out of ecoset, I128, I256, C10, C100;'
          'Append "_hdf5" to use the hdf5 version for ISLVRC '
          '(default: %(default)s)')
   parser.add_argument(
@@ -405,28 +405,31 @@ dset_dict = {'I32': dset.ImageFolder, 'I64': dset.ImageFolder,
              'I128': dset.ImageFolder, 'I256': dset.ImageFolder,
              'I32_hdf5': dset.ILSVRC_HDF5, 'I64_hdf5': dset.ILSVRC_HDF5, 
              'I128_hdf5': dset.ILSVRC_HDF5, 'I256_hdf5': dset.ILSVRC_HDF5,
-             'C10': dset.CIFAR10, 'C100': dset.CIFAR100}
+             'C10': dset.CIFAR10, 'C100': dset.CIFAR100, 
+             'ecoset': dset.ImageFolder, 'ecoset_hdf5': dset.ILSVRC_HDF5}
 imsize_dict = {'I32': 32, 'I32_hdf5': 32,
                'I64': 64, 'I64_hdf5': 64,
                'I128': 128, 'I128_hdf5': 128,
                'I256': 256, 'I256_hdf5': 256,
-               'C10': 32, 'C100': 32}
+               'C10': 32, 'C100': 32, 'ecoset': 128}
 root_dict = {'I32': 'ImageNet', 'I32_hdf5': 'ILSVRC32.hdf5',
              'I64': 'ImageNet', 'I64_hdf5': 'ILSVRC64.hdf5',
              'I128': 'ImageNet', 'I128_hdf5': 'ILSVRC128.hdf5',
              'I256': 'ImageNet', 'I256_hdf5': 'ILSVRC256.hdf5',
-             'C10': 'cifar', 'C100': 'cifar'}
+             'C10': 'cifar', 'C100': 'cifar', 
+             'ecoset': 'ECOSET', 'ecoset_hdf5': ILSVRCECO.hdf5}
 nclass_dict = {'I32': 1000, 'I32_hdf5': 1000,
                'I64': 1000, 'I64_hdf5': 1000,
                'I128': 1000, 'I128_hdf5': 1000,
                'I256': 1000, 'I256_hdf5': 1000,
-               'C10': 10, 'C100': 100}
+               'C10': 10, 'C100': 100, 'ecoset': 2}
 # Number of classes to put per sample sheet               
 classes_per_sheet_dict = {'I32': 50, 'I32_hdf5': 50,
                           'I64': 50, 'I64_hdf5': 50,
                           'I128': 20, 'I128_hdf5': 20,
                           'I256': 20, 'I256_hdf5': 20,
-                          'C10': 10, 'C100': 100}
+                          'C10': 10, 'C100': 100, 
+                          'ecoset': 2}
 activation_dict = {'inplace_relu': nn.ReLU(inplace=True),	
                    'relu': nn.ReLU(inplace=False),
                    'ir': nn.ReLU(inplace=True),}
